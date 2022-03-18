@@ -9,10 +9,6 @@ public class DatosCompra {
     private String barrio;
     private String direccion;
     private String complemento;
-    private String numtarjeta;
-    private String numdocumento;
-
-    
 
     public int getCantidad() {
         return cantidad;
@@ -62,19 +58,4 @@ public class DatosCompra {
         this.complemento = complemento;
     }
 
-    public String getNumtarjeta() {
-        return numtarjeta;
-    }
-
-    public void setNumtarjeta(String numtarjeta) {
-        this.numtarjeta = numtarjeta;
-    }
-
-    public String getNumdocumento() {
-        return numdocumento;
-    }
-
-    public void setNumdocumento(String numdocumento) {
-        this.numdocumento = numdocumento;
-    }
 }

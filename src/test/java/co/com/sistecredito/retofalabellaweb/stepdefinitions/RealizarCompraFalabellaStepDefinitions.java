@@ -29,7 +29,7 @@ public class RealizarCompraFalabellaStepDefinitions {
     @Before
     public void configurar() {
         OnStage.setTheStage(Cast.whereEveryoneCan(BrowseTheWeb.with(driver)));
-        OnStage.theActorCalled("UsuarioXimena");
+        OnStage.theActorCalled("Usuario Ximena");
     }
 
 
