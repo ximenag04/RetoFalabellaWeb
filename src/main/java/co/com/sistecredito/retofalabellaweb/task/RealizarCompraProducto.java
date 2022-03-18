@@ -7,7 +7,6 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
-import net.serenitybdd.screenplay.actions.SendKeys;
 
 
 import java.util.List;
@@ -15,11 +14,11 @@ import java.util.List;
 import static co.com.sistecredito.retofalabellaweb.userinterface.BolsaCompras.*;
 import static co.com.sistecredito.retofalabellaweb.userinterface.DespachoCompras.*;
 import static co.com.sistecredito.retofalabellaweb.userinterface.HomeFalabella.*;
+import static co.com.sistecredito.retofalabellaweb.userinterface.Pago.*;
 
 public class RealizarCompraProducto implements Task {
 
     private List<DatosCompra> datosCompras;
-    private String busqueda;
     private int cantidad;
     private String departamento;
     private String ciudad;
@@ -31,7 +30,6 @@ public class RealizarCompraProducto implements Task {
 
     public RealizarCompraProducto(List<DatosCompra> datosCompras) {
         this.datosCompras = datosCompras;
-        this.busqueda = datosCompras.get(0).getBusqueda();
         this.cantidad = datosCompras.get(0).getCantidad();
         this.departamento = datosCompras.get(0).getDepartamento();
         this.ciudad = datosCompras.get(0).getCiudad();
@@ -45,13 +43,15 @@ public class RealizarCompraProducto implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Enter.theValue(busqueda).into(BUSQUEDA),
-                Click.on(BTNBUSQUEDA),
+                Click.on(CATEGORIAS),
+                Click.on(CELULARES),
+                Click.on(TELEFONIA),
                 Click.on(SELECCIONARPRODUCTO)
         );
 
         for (int i = 0; i < cantidad; i++) {
             actor.attemptsTo(
+
                     Click.on(AUMENTOCANTIDADPRODUCTO)
             );
         }
@@ -66,7 +66,11 @@ public class RealizarCompraProducto implements Task {
                 Click.on(SELECCIONARCONTINUAR),
                 Scroll.to(DIRECCION),
                 Enter.theValue(direccion).into(DIRECCION),
-                Enter.theValue(complemento).into(COMPLEMENTODIRECCION)
+                Enter.theValue(complemento).into(COMPLEMENTODIRECCION),
+                Click.on(INGRESARDIRECCION),
+                Click.on(CONTINUARAPAGO),
+                Enter.theValue(numtarjeta).into(NUMTARJETA),
+                Enter.theValue(numdocumento).into(NUMDOCUMENTO)
         );
 
     }

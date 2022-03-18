@@ -2,7 +2,7 @@ package co.com.sistecredito.retofalabellaweb.model;
 
 public class DatosCompra {
 
-    private String busqueda;
+
     private int cantidad;
     private String departamento;
     private String ciudad;
@@ -12,13 +12,7 @@ public class DatosCompra {
     private String numtarjeta;
     private String numdocumento;
 
-    public String getBusqueda() {
-        return busqueda;
-    }
-
-    public void setBusqueda(String busqueda) {
-        this.busqueda = busqueda;
-    }
+    
 
     public int getCantidad() {
         return cantidad;
