@@ -25,8 +25,6 @@ public class RealizarCompraProducto implements Task {
     private String barrio;
     private String direccion;
     private String complemento;
-    private String numtarjeta;
-    private String numdocumento;
 
     public RealizarCompraProducto(List<DatosCompra> datosCompras) {
         this.datosCompras = datosCompras;
@@ -36,8 +34,6 @@ public class RealizarCompraProducto implements Task {
         this.barrio = datosCompras.get(0).getBarrio();
         this.direccion = datosCompras.get(0).getDireccion();
         this.complemento = datosCompras.get(0).getComplemento();
-        this.numtarjeta = datosCompras.get(0).getNumtarjeta();
-        this.numdocumento = datosCompras.get(0).getNumdocumento();
     }
 
     @Override
@@ -69,8 +65,7 @@ public class RealizarCompraProducto implements Task {
                 Enter.theValue(complemento).into(COMPLEMENTODIRECCION),
                 Click.on(INGRESARDIRECCION),
                 Click.on(CONTINUARAPAGO),
-                Enter.theValue(numtarjeta).into(NUMTARJETA),
-                Enter.theValue(numdocumento).into(NUMDOCUMENTO)
+                Scroll.to(MONTOAPAGAR)
         );
 
     }
